@@ -14,5 +14,5 @@ COPY . $APP_HOME
 
 # Start server
 ENV PORT 80
+ENTRYPOINT ["./entrypoint.sh"]
 EXPOSE 80
-CMD ["bundle", "exec", "ruby", "web.rb", "-s", "Puma", "-p", "$PORT"]
