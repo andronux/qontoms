@@ -1,0 +1,222 @@
+[34m*(B[m Cloning the project...
+[34m*(B[m Building ms1...
+Your branch is up-to-date with 'origin/master'.
+Sending build context to Docker daemon  9.728kB
+Step 1/12 : FROM andronux/ruby2.1.5
+ ---> 8c9afc66a985
+Step 2/12 : MAINTAINER Karim EL MANSOURI <karim.elmansouri@gmail.com>
+ ---> Using cache
+ ---> a9dcb667faa6
+Step 3/12 : ENV APP_HOME /app
+ ---> Using cache
+ ---> ebde0b8a3b0a
+Step 4/12 : ENV HOME /root
+ ---> Using cache
+ ---> a0b3e986165f
+Step 5/12 : RUN mkdir $APP_HOME
+ ---> Using cache
+ ---> 89f09b42ab9e
+Step 6/12 : WORKDIR $APP_HOME
+ ---> Using cache
+ ---> d918dab6c0c3
+Step 7/12 : COPY Gemfile* $APP_HOME/
+ ---> Using cache
+ ---> 2d6c6e821101
+Step 8/12 : RUN bundle install
+ ---> Using cache
+ ---> d42edc197d0a
+Step 9/12 : COPY . $APP_HOME
+ ---> Using cache
+ ---> 4ffabd8cbba2
+Step 10/12 : ENV PORT 80
+ ---> Using cache
+ ---> f788f26f6d3e
+Step 11/12 : ENTRYPOINT ./entrypoint.sh
+ ---> Using cache
+ ---> 544adb0296ab
+Step 12/12 : EXPOSE 80
+ ---> Using cache
+ ---> 5725d40a33ed
+Successfully built 5725d40a33ed
+Successfully tagged registry.ganditest.us:5000/ms1:master
+The push refers to a repository [registry.ganditest.us:5000/ms1]
+9571ca626612: Preparing
+f0ff45dca32b: Preparing
+6b178dda7292: Preparing
+3e9f927b21bd: Preparing
+7ac5a5cbcbd0: Preparing
+983f75bab019: Preparing
+cdbe238ab501: Preparing
+dfa2d95c1d2c: Preparing
+c5004c08ee3c: Preparing
+3d98292934eb: Preparing
+d446bdefad17: Preparing
+c09758f37488: Preparing
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+6d072730b7d8: Preparing
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+0d81735d8272: Preparing
+982549bd6b32: Preparing
+8698b31c92d5: Preparing
+d446bdefad17: Waiting
+c09758f37488: Waiting
+983f75bab019: Waiting
+5f70bf18a086: Waiting
+6d072730b7d8: Waiting
+cdbe238ab501: Waiting
+dfa2d95c1d2c: Waiting
+0d81735d8272: Waiting
+982549bd6b32: Waiting
+c5004c08ee3c: Waiting
+8698b31c92d5: Waiting
+7ac5a5cbcbd0: Layer already exists
+f0ff45dca32b: Layer already exists
+9571ca626612: Layer already exists
+3e9f927b21bd: Layer already exists
+cdbe238ab501: Layer already exists
+6b178dda7292: Layer already exists
+983f75bab019: Layer already exists
+3d98292934eb: Layer already exists
+dfa2d95c1d2c: Layer already exists
+c09758f37488: Layer already exists
+c5004c08ee3c: Layer already exists
+d446bdefad17: Layer already exists
+5f70bf18a086: Layer already exists
+982549bd6b32: Layer already exists
+6d072730b7d8: Layer already exists
+0d81735d8272: Layer already exists
+8698b31c92d5: Layer already exists
+master: digest: sha256:ea66294d2c1c9fa2bde4c292b5d7708bacf4e7095434d4fc585821d73cd84bb1 size: 4501
+[34m*(B[m Configuring ms1 vhost...
+upstream ms1 {
+  server 10.3.83.89:8686;
+  server 10.4.33.205:8686;
+  server 10.2.63.215:8686;
+}
+
+server {
+  listen 80;
+
+  server_name ms1-master.ganditest.us;
+
+  location / {
+    proxy_pass http://ms1;
+  }
+}
+
+# vim: ts=2 sw=2 ft=yaml
+[34m*(B[m Deploying update ms1...
+ms1
+[34m*(B[m Building ms2...
+Your branch is up-to-date with 'origin/master'.
+Sending build context to Docker daemon  9.216kB
+Step 1/12 : FROM andronux/ruby2.1.5
+ ---> 8c9afc66a985
+Step 2/12 : MAINTAINER Karim EL MANSOURI <karim.elmansouri@gmail.com>
+ ---> Using cache
+ ---> a9dcb667faa6
+Step 3/12 : ENV APP_HOME /app
+ ---> Using cache
+ ---> ebde0b8a3b0a
+Step 4/12 : ENV HOME /root
+ ---> Using cache
+ ---> a0b3e986165f
+Step 5/12 : RUN mkdir $APP_HOME
+ ---> Using cache
+ ---> 89f09b42ab9e
+Step 6/12 : WORKDIR $APP_HOME
+ ---> Using cache
+ ---> d918dab6c0c3
+Step 7/12 : COPY Gemfile* $APP_HOME/
+ ---> Using cache
+ ---> 5d4fdb5e9a77
+Step 8/12 : RUN bundle install
+ ---> Using cache
+ ---> 455bb33cf0a1
+Step 9/12 : COPY . $APP_HOME
+ ---> Using cache
+ ---> 80d51957be68
+Step 10/12 : ENV PORT 80
+ ---> Using cache
+ ---> 078d53b9deba
+Step 11/12 : ENTRYPOINT ./entrypoint.sh
+ ---> Using cache
+ ---> fe46363ac281
+Step 12/12 : EXPOSE 80
+ ---> Using cache
+ ---> 5e40f42e2dc6
+Successfully built 5e40f42e2dc6
+Successfully tagged registry.ganditest.us:5000/ms2:master
+The push refers to a repository [registry.ganditest.us:5000/ms2]
+23431f898cdc: Preparing
+2b91c37d8517: Preparing
+c8c5c39c786e: Preparing
+3e9f927b21bd: Preparing
+7ac5a5cbcbd0: Preparing
+983f75bab019: Preparing
+cdbe238ab501: Preparing
+dfa2d95c1d2c: Preparing
+c5004c08ee3c: Preparing
+3d98292934eb: Preparing
+d446bdefad17: Preparing
+c09758f37488: Preparing
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+6d072730b7d8: Preparing
+5f70bf18a086: Preparing
+5f70bf18a086: Preparing
+0d81735d8272: Preparing
+982549bd6b32: Preparing
+8698b31c92d5: Preparing
+dfa2d95c1d2c: Waiting
+c5004c08ee3c: Waiting
+3d98292934eb: Waiting
+d446bdefad17: Waiting
+c09758f37488: Waiting
+5f70bf18a086: Waiting
+6d072730b7d8: Waiting
+0d81735d8272: Waiting
+982549bd6b32: Waiting
+8698b31c92d5: Waiting
+983f75bab019: Waiting
+cdbe238ab501: Waiting
+c8c5c39c786e: Layer already exists
+7ac5a5cbcbd0: Layer already exists
+23431f898cdc: Layer already exists
+2b91c37d8517: Layer already exists
+3e9f927b21bd: Layer already exists
+cdbe238ab501: Layer already exists
+983f75bab019: Layer already exists
+d446bdefad17: Layer already exists
+dfa2d95c1d2c: Layer already exists
+3d98292934eb: Layer already exists
+5f70bf18a086: Layer already exists
+c09758f37488: Layer already exists
+6d072730b7d8: Layer already exists
+982549bd6b32: Layer already exists
+8698b31c92d5: Layer already exists
+0d81735d8272: Layer already exists
+c5004c08ee3c: Layer already exists
+master: digest: sha256:853d4ac74ebcee6720ab82dac78f26c043db8179d5c39f90b0c2655f992defab size: 4500
+[34m*(B[m Configuring ms2 vhost...
+upstream ms2 {
+  server 10.3.83.89:8787;
+  server 10.4.33.205:8787;
+  server 10.2.63.215:8787;
+}
+
+server {
+  listen 80;
+
+  server_name ms2-master.ganditest.us;
+
+  location / {
+    proxy_pass http://ms2;
+  }
+}
+
+# vim: ts=2 sw=2 ft=yaml
+[34m*(B[m Deploying update ms2...
+ms2
