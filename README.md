@@ -48,8 +48,8 @@ I had to fix a syntax error in web.rb. In addition, I noticed that puma web serv
     root@ms-qonto:~/deployment# docker service list
     ID                  NAME                MODE                REPLICAS            IMAGE                                   PORTS
     3lle7a2lndul        ms1                 replicated          3/3                 registry.ganditest.us:5000/ms1:master
-    83n1j9wwbjio        ms2                 replicated          3/3                 registry.ganditest.us:5000/ms2:master
-
+    83n1j9wwbjio        ms2                 replicated          3/3                 registry.ganditest.us:5000/ms2:dev
+    
 # Swarm services update history
     root@ms-qonto:~/deployment# docker service ps ms1
 	ID                  NAME                IMAGE                                   NODE                DESIRED STATE       CURRENT STATE             ERROR               PORTS
