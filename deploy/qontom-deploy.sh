@@ -53,7 +53,7 @@ branch_name="$(git symbolic-ref HEAD 2>/dev/null)" || branch_name="(unnamed bran
 branch_name=${branch_name##refs/heads/}
 
 get_branch() {
-      branch_exist=`git branch -r --no-color | grep -E '$1' | sed 's/origin\///g' | awk '{print $1}'` \
+      branch_exist=`git branch -r --no-color | grep -E $git_branch | sed 's/origin\///g' | awk '{print $1}'` \
     ||  branch_exist=$GIT_DEFAULT_BRANCH
       echo $branch_exist
 }
