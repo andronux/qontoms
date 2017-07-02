@@ -1,0 +1,17 @@
+upstream ms2 {
+  server 10.3.83.89:8787;
+  server 10.4.33.205:8787;
+  server 10.2.63.215:8787;
+}
+
+server {
+  listen 80;
+
+  server_name ms2-{{ branch }}.ganditest.us;
+
+  location / {
+    proxy_pass http://ms2;
+  }
+}
+
+# vim: ts=2 sw=2 ft=yaml
